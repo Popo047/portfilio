@@ -224,9 +224,13 @@ export function DynamicForm({ onSave }: DynamicFormProps) {
 					value={activeTab}
 					onValueChange={(value) => setActiveTab(value as Sections)}
 				>
-					<TabsList className="flex flex-wrap gap-2 sm:space-x-4 sm:flex-nowrap w-full overflow-x-auto sm:overflow-visible">
+					<TabsList className="flex flex-wrap gap-2 sm:space-x-4 sm:flex-nowrap w-full overflow-x-auto sm:overflow-visible transition-all duration-300 ease-in-out origin-left">
 						{activeSections.map((section) => (
-							<TabsTrigger key={section} value={section}>
+							<TabsTrigger
+								key={section}
+								value={section}
+								className="transition-all duration-300 "
+							>
 								{formConfig[section].title}
 							</TabsTrigger>
 						))}

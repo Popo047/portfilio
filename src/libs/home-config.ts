@@ -7,6 +7,7 @@ type Sections =
 	| "experience"
 	| "contacts";
 type AboutProps = {
+	name: string;
 	content: string;
 };
 
@@ -81,6 +82,7 @@ export const homeSections: HomeSections[] = [
 	{
 		type: "about",
 		props: {
+			name: "Soham Debnath",
 			content:
 				"I'm a Senior Frontend Developer with a strong passion for building scalable, performant web applications using Next.js, React, TypeScript, and TailwindCSS. I've architected and built multiple production apps end-to-end, and enjoy mentoring, optimizing UI/UX, and writing clean, modular code.",
 		},

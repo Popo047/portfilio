@@ -1,4 +1,5 @@
 type AboutProps = {
+	name: string;
 	content: string;
 };
 
