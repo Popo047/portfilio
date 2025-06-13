@@ -4,6 +4,7 @@ import { DynamicForm } from "@/components/sections/DynamicForm";
 import { SectionData } from "./types";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { JsonForm } from "@/components/sections/JsonForm";
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<"json" | "form">("json");
@@ -33,8 +34,8 @@ export default function Home() {
 					Fill the form fields to make the portfolio. ( Coming Soon... )
 				</TabsContent>
 			</Tabs>
-
 			{activeTab === "form" && <DynamicForm onSave={handleSave} />}
+			{activeTab === "json"}&& <JsonForm onSave={handleSave} />
 		</main>
 	);
 }
