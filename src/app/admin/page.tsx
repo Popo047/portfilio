@@ -8,9 +8,25 @@ import { JsonForm } from "@/components/sections/JsonForm";
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<"json" | "form">("json");
+	const handleSave = async (data: SectionData) => {
+		try {
+			const res = await fetch("/api", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
 
-	const handleSave = (data: SectionData) => {
-		console.log("Saved data:", data);
+			if (!res.ok) {
+				throw new Error(`Request failed with status ${res.status}`);
+			}
+
+			const result = await res.json();
+			console.log("✅ Successfully saved:", result);
+		} catch (err) {
+			console.error("❌ Error submitting data:", err);
+		}
 	};
 
 	return (
@@ -27,15 +43,19 @@ export default function Home() {
 					</TabsTrigger>
 					<TabsTrigger value="form">Form</TabsTrigger>
 				</TabsList>
-				<TabsContent value="json">
-					Use a Json File to upload all the required fields
+				<TabsContent value="json" className="w-full">
+					<span className="flex items-center justify-center">
+						Use a Json File to upload all the required fields
+					</span>
+					<JsonForm onSave={handleSave} />
 				</TabsContent>
-				<TabsContent value="form">
-					Fill the form fields to make the portfolio. ( Coming Soon... )
+				<TabsContent value="form" className="w-full">
+					<span className="flex items-center justify-center">
+						Fill the form fields to make the portfolio. ( Coming Soon... )
+					</span>
+					<DynamicForm onSave={handleSave} />
 				</TabsContent>
 			</Tabs>
-			{activeTab === "form" && <DynamicForm onSave={handleSave} />}
-			{activeTab === "json"}&& <JsonForm onSave={handleSave} />
 		</main>
 	);
 }
