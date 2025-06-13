@@ -13,10 +13,7 @@ interface AboutFormProps {
 }
 
 export function AboutForm({ data, onChange }: AboutFormProps) {
-	const [aboutData, setNewAboutData] = useState({
-		name: "",
-		content: "",
-	});
+	const [aboutData, setNewAboutData] = useState<typeof data>(data);
 
 	const handleChange = (key: "content" | "name", value: string) => {
 		// setNewAboutData(value);
