@@ -15,7 +15,9 @@ type ProjectsProps = {
 export function Projects({ projects }: ProjectsProps) {
 	return (
 		<section id="projects" className="py-16 px-4 max-w-5xl mx-auto">
-			<h2 className="text-2xl font-semibold text-center mb-8">Projects</h2>
+			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
+				Projects
+			</h2>{" "}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				{projects.map((project, idx) => (
 					<div

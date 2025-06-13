@@ -1,5 +1,3 @@
-// lib/home-config.ts
-
 type Sections =
 	| "about"
 	| "projects"
@@ -58,6 +56,11 @@ type ExperienceProps = {
 
 type ContactProps = {
 	email: string;
+	socials?: {
+		github?: string;
+		linkedin?: string;
+		twitter?: string;
+	};
 };
 
 type SectionProps =
@@ -222,6 +225,11 @@ export const homeSections: HomeSections[] = [
 		type: "contacts",
 		props: {
 			email: "sanchay2234@gmail.com",
+			socials: {
+				github: "https://github.com/Popo047/portfilio",
+				linkedin: "https://www.linkedin.com/in/soham-debnath-97597216b/",
+				twitter: "https://twitter.com/soham_dev",
+			},
 		},
 	},
 ];

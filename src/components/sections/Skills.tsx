@@ -10,7 +10,10 @@ type SkillsProps = {
 export function Skills({ skillGroups }: SkillsProps) {
 	return (
 		<section id="skills" className="py-8 px-4 max-w-4xl mx-auto">
-			<h2 className="text-2xl font-semibold text-center mb-8">Skills</h2>
+			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
+				Skills
+			</h2>
+
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
 				{skillGroups.map((group, index) => (
 					<div
