@@ -14,7 +14,7 @@ import { ContactForm } from "../forms/contact-form";
 import { FormConfig, SectionData, Sections } from "@/app/admin/types";
 
 const defaultSectionData: SectionData = {
-	about: { content: "" },
+	about: { content: "", name: "" },
 	projects: { projects: [] },
 	skills: { skillGroups: [] },
 	education: { schools: [] },
