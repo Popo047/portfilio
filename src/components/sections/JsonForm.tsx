@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-// import CodeMirror from "@uiw/react-codemirror";
-// import { json } from "@codemirror/lang-json";
+import CodeMirror from "@uiw/react-codemirror";
+import { json } from "@codemirror/lang-json";
 import { SectionData } from "@/app/admin/types";
 import { Textarea } from "../ui/textarea";
 
@@ -44,12 +44,26 @@ export function JsonForm({ onSave }: JsonFormProps) {
 	};
 
 	return (
-		<div className="flex flex-col p-4 max-w-4xl mx-auto space-y-4">
-			<Textarea
-				rows={20}
-				value={jsonInput}
-				onChange={(e) => setJsonInput(e.target.value)}
-				placeholder={`{
+		<div>
+			<div className="md:flex  md:flex-col hidden p-4 max-w-4xl mx-auto space-y-4">
+				<CodeMirror
+					value={jsonInput}
+					height="400px"
+					extensions={[json()]}
+					onChange={(value) => setJsonInput(value)}
+					className="border rounded-md"
+					theme="dark"
+				/>
+
+				{error && <p className="text-red-500 text-sm">{error}</p>}
+				<Button onClick={handleSubmit}>Save</Button>
+			</div>
+			<div className="md:hidden flex flex-col p-4 max-w-4xl mx-auto space-y-4">
+				<Textarea
+					rows={20}
+					value={jsonInput}
+					onChange={(e) => setJsonInput(e.target.value)}
+					placeholder={`{
 	"about": {
 		"name": "Soham Debnath",
 		"content": "I'm a passionate developer..."
@@ -63,11 +77,12 @@ export function JsonForm({ onSave }: JsonFormProps) {
 		]
 	}
 }`}
-				className="font-mono text-sm"
-			/>
-			{error && <p className="text-red-500 text-sm">{error}</p>}
+					className="font-mono text-sm"
+				/>
+				{error && <p className="text-red-500 text-sm">{error}</p>}
 
-			<Button onClick={handleSubmit}>Save</Button>
+				<Button onClick={handleSubmit}>Save</Button>
+			</div>
 		</div>
 	);
 }
