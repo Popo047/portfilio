@@ -11,7 +11,7 @@ import {
 import { Menu } from "lucide-react";
 import { ThemeToggleButton } from "@/components/buttons/theme-button";
 import clsx from "clsx";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { siteConfig } from "@/libs/site-config";
 
 const navItems = [
 	{ label: "About", id: "about" },
@@ -82,23 +82,17 @@ export function Navbar() {
 
 				{/* Desktop Socials */}
 				<div className="hidden md:flex space-x-4">
-					<a
-						href="https://github.com/yourname"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Github className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-					</a>
-					<a
-						href="https://linkedin.com/in/yourname"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-					</a>
-					<a href="mailto:your@email.com">
-						<Mail className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-					</a>
+					{siteConfig.socialLinks.map(({ label, href, icon: Icon }) => (
+						<a
+							key={label}
+							href={href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={label}
+						>
+							<Icon className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
+						</a>
+					))}
 				</div>
 
 				{/* Mobile Nav (Sheet) */}
@@ -117,23 +111,17 @@ export function Navbar() {
 						<SheetContent side="right" className="w-[200px]">
 							<SheetTitle className="sr-only">Something</SheetTitle>
 							<div className="mt-8 flex items-center justify-center gap-4">
-								<a
-									href="https://github.com/yourname"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<Github className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-								</a>
-								<a
-									href="https://linkedin.com/in/yourname"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									<Linkedin className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-								</a>
-								<a href="mailto:your@email.com">
-									<Mail className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
-								</a>
+								{siteConfig.socialLinks.map(({ label, href, icon: Icon }) => (
+									<a
+										key={label}
+										href={href}
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label={label}
+									>
+										<Icon className="h-5 w-5 text-muted-foreground hover:text-primary transition" />
+									</a>
+								))}
 							</div>
 							<div className="flex flex-col gap-4 mt-8 items-center">
 								<ThemeToggleButton />
