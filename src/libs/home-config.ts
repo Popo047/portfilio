@@ -1,6 +1,76 @@
 // lib/home-config.ts
 
-export const homeSections = [
+type Sections =
+	| "about"
+	| "projects"
+	| "skills"
+	| "education"
+	| "testimonials"
+	| "experience"
+	| "contacts";
+type AboutProps = {
+	content: string;
+};
+
+type ProjectsProps = {
+	projects: {
+		title: string;
+		description: string;
+		link?: string;
+	}[];
+};
+
+type SkillsProps = {
+	skillGroups: {
+		category: string;
+		skills: string[];
+	}[];
+};
+
+type EducationProps = {
+	schools: {
+		degree: string;
+		institution: string;
+		year: string;
+	}[];
+};
+
+type TestimonialsProps = {
+	testimonials: {
+		name: string;
+		quote: string;
+		role: string;
+	}[];
+};
+
+type ExperienceProps = {
+	items: {
+		role: string;
+		company: string;
+		date: string;
+		description: string;
+	}[];
+};
+
+type ContactProps = {
+	email: string;
+};
+
+type SectionProps =
+	| AboutProps
+	| ProjectsProps
+	| SkillsProps
+	| EducationProps
+	| TestimonialsProps
+	| ExperienceProps
+	| ContactProps;
+
+interface HomeSections {
+	type: Sections;
+	props: SectionProps;
+}
+
+export const homeSections: HomeSections[] = [
 	{
 		type: "about",
 		props: {
@@ -28,6 +98,19 @@ export const homeSections = [
 		},
 	},
 	{
+		type: "experience",
+		props: {
+			items: [
+				{
+					role: "Frontend Developer",
+					company: "Tech Inc.",
+					date: "2022 – Present",
+					description: "Worked on reusable component libraries using ShadCN.",
+				},
+			],
+		},
+	},
+	{
 		type: "projects",
 		props: {
 			projects: [
@@ -44,6 +127,7 @@ export const homeSections = [
 			],
 		},
 	},
+
 	{
 		type: "education",
 		props: {
@@ -81,22 +165,9 @@ export const homeSections = [
 			],
 		},
 	},
-	{
-		type: "experience",
-		props: {
-			items: [
-				{
-					role: "Frontend Developer",
-					company: "Tech Inc.",
-					date: "2022 – Present",
-					description: "Worked on reusable component libraries using ShadCN.",
-				},
-			],
-		},
-	},
 
 	{
-		type: "contact",
+		type: "contacts",
 		props: {
 			email: "soham@example.com",
 		},
