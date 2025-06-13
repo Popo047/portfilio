@@ -1,6 +1,10 @@
+import { Badge } from "../ui/badge";
+
 type Project = {
 	title: string;
-	description: string;
+	description: string[];
+	tech: string[];
+	period: string;
 	link?: string;
 };
 
@@ -16,20 +20,47 @@ export function Projects({ projects }: ProjectsProps) {
 				{projects.map((project, idx) => (
 					<div
 						key={idx}
-						className="border rounded-xl p-4 shadow-sm hover:shadow-md transition"
+						className="rounded-2xl border p-5 shadow-sm transition-shadow hover:shadow-md bg-background space-y-4"
 					>
-						<h3 className="font-medium text-lg">{project.title}</h3>
-						<p className="text-sm text-muted-foreground mt-2">
-							{project.description}
-						</p>
+						{/* Title and Tech Stack */}
+						<div className="flex flex-wrap items-center gap-2">
+							<h3 className="font-semibold text-lg text-foreground">
+								{project.title}
+							</h3>
+							<div className="flex flex-wrap gap-2">
+								{project.tech.map((tech, i) => (
+									<Badge
+										key={i}
+										variant="outline"
+										className="text-xs hover:ring hover:scale-105 transition-all duration-300  cursor-pointer"
+									>
+										{tech}
+									</Badge>
+								))}
+							</div>
+						</div>
+
+						{/* Description Points */}
+						<ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
+							{project.description.map((point, i) => (
+								<li
+									key={i}
+									className="hover:text-foreground/90 transition-colors"
+								>
+									{point}
+								</li>
+							))}
+						</ul>
+
+						{/* Optional Link */}
 						{project.link && (
 							<a
 								href={project.link}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="text-sm text-blue-500 mt-2 inline-block hover:underline"
+								className="inline-block text-sm font-medium text-blue-500 hover:underline transition-transform duration-200 ease-in-out hover:translate-x-1"
 							>
-								View Project
+								🔗 View Project
 							</a>
 						)}
 					</div>

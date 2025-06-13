@@ -15,7 +15,9 @@ type AboutProps = {
 type ProjectsProps = {
 	projects: {
 		title: string;
-		description: string;
+		description: string[];
+		tech: string[];
+		period: string;
 		link?: string;
 	}[];
 };
@@ -32,6 +34,7 @@ type EducationProps = {
 		degree: string;
 		institution: string;
 		year: string;
+		gpa: string;
 	}[];
 };
 
@@ -49,6 +52,7 @@ type ExperienceProps = {
 		company: string;
 		date: string;
 		description: string;
+		highlights: string[];
 	}[];
 };
 
@@ -75,7 +79,7 @@ export const homeSections: HomeSections[] = [
 		type: "about",
 		props: {
 			content:
-				"I'm a passionate developer who loves building web apps that are fast, beautiful, and easy to use.",
+				"I'm a Senior Frontend Developer with a strong passion for building scalable, performant web applications using Next.js, React, TypeScript, and TailwindCSS. I've architected and built multiple production apps end-to-end, and enjoy mentoring, optimizing UI/UX, and writing clean, modular code.",
 		},
 	},
 	{
@@ -83,16 +87,20 @@ export const homeSections: HomeSections[] = [
 		props: {
 			skillGroups: [
 				{
+					category: "Langauges",
+					skills: ["Typescript", "Javascript"],
+				},
+				{
 					category: "Frontend",
 					skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "ShadCN"],
 				},
 				{
 					category: "Backend",
-					skills: ["Node.js", "Express", "MongoDB", "Prisma"],
+					skills: ["Node.js", "Express", "MongoDB"],
 				},
 				{
 					category: "Tools",
-					skills: ["Git", "Postman", "Vercel", "Figma"],
+					skills: ["Git", "Postman", "Vercel"],
 				},
 			],
 		},
@@ -102,10 +110,20 @@ export const homeSections: HomeSections[] = [
 		props: {
 			items: [
 				{
-					role: "Frontend Developer",
-					company: "Tech Inc.",
-					date: "2022 – Present",
+					role: "Senior Frontend Developer",
+					company: "Decimal Point Analytics",
+					date: "Sept 2021 – Present",
 					description: "Worked on reusable component libraries using ShadCN.",
+					highlights: [
+						"Built 4 projects from scratch (PDFQuery, EazyData, SmartPipe, DocX)",
+						"Designed scalable frontend architecture with reusable components",
+						"Integrated OAuth 2.0 across all products",
+						"Created responsive UIs with TailwindCSS",
+						"Mentored developers in frontend best practices",
+						"Developed Node.js + Express email microservice",
+						"Improved performance using Lighthouse and code cleanup",
+						"Implemented Cypress E2E and component testing",
+					],
 				},
 			],
 		},
@@ -116,13 +134,59 @@ export const homeSections: HomeSections[] = [
 			projects: [
 				{
 					title: "Portfolio Website",
-					description: "A personal website to showcase my work and blogs.",
-					link: "https://soham.dev",
+					description: ["A personal website to showcase my work and blogs."],
+					link: "https://popo047.vercel.dev",
+					period: "Jun. 2025 - Present",
+					tech: ["NextJS", "TailwindCSS", "ShadCn", "App Router", "NextJS API"],
 				},
 				{
 					title: "EazyData.ai",
-					description:
-						"A no-code data pipeline builder built with Next.js and Tailwind.",
+					period: "Sept. 2024 - Present",
+					tech: [
+						"Next.js 14",
+						"TypeScript",
+						"TailwindCSS",
+						"Shadcn",
+						"Zustand",
+						"Node.js",
+					],
+					link: "https://app.in01.eazydata.ai",
+					description: [
+						"Frontend for a data migration and cleansing platform with real-time updates",
+						"Parallel routing reduced load time by 40%, RAM usage by 25%",
+						"Custom hooks like `useAxios` cut API boilerplate by 60%",
+						"Lightweight, modular table reduced dependency size",
+					],
+				},
+				{
+					title: "PDFQuery",
+					tech: [
+						"Next.js 14",
+						"TypeScript",
+						"TailwindCSS",
+						"Zustand",
+						"Websockets",
+						"Sentry",
+					],
+					link: "https://pdfquery.ai/",
+
+					period: "Jan 2024 – Feb-2025",
+					description: [
+						"PDF summarization and Q&A platform with real-time WebSocket streaming",
+						"Mobile-first UI with animations",
+						"Implemented server-side pages and Zustand state management",
+						"Integrated Sentry and Cypress for testing & debugging",
+					],
+				},
+				{
+					title: "OauthV2.0",
+					tech: ["Next.js 14", "TypeScript", "TailwindCSS", "Zustand"],
+					// link: "https://pdfquery.ai/",
+
+					period: "Jan 2024 – Present",
+					description: [
+						"Robust Authentication System for tenants for products",
+					],
 				},
 			],
 		},
@@ -133,9 +197,10 @@ export const homeSections: HomeSections[] = [
 		props: {
 			schools: [
 				{
-					degree: "B.Tech CSE",
-					institution: "IIT Delhi",
-					year: "2019",
+					degree: "B.Tech in Computer Science and Engineering",
+					institution: "Adamas University",
+					year: "August 2021",
+					gpa: "7.44",
 				},
 			],
 		},
@@ -145,22 +210,9 @@ export const homeSections: HomeSections[] = [
 		props: {
 			testimonials: [
 				{
-					name: "Alice Kumar",
-					quote:
-						"Soham is a fantastic engineer who delivers quickly and communicates clearly.",
-					role: "Team Lead, EazyData.ai",
-				},
-				{
-					name: "Alice Kumar",
-					quote:
-						"Soham is a fantastic engineer who delivers quickly and communicates clearly.",
-					role: "Team Lead, EazyData.ai",
-				},
-				{
-					name: "Alice Kumar",
-					quote:
-						"Soham is a fantastic engineer who delivers quickly and communicates clearly.",
-					role: "Team Lead, EazyData.ai",
+					name: "Dane Joe",
+					quote: "Soham is ...",
+					role: "Team Lead Lead, EazyData.ai",
 				},
 			],
 		},
@@ -169,7 +221,7 @@ export const homeSections: HomeSections[] = [
 	{
 		type: "contacts",
 		props: {
-			email: "soham@example.com",
+			email: "sanchay2234@gmail.com",
 		},
 	},
 ];

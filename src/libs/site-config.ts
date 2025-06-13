@@ -11,17 +11,17 @@ export const siteConfig = {
 	socialLinks: [
 		{
 			label: "GitHub",
-			href: "https://github.com/yourusername",
+			href: "https://github.com/Popo047/portfilio",
 			icon: Github,
 		},
 		{
 			label: "LinkedIn",
-			href: "https://linkedin.com/in/yourusername",
+			href: "https://www.linkedin.com/in/soham-debnath-97597216b/",
 			icon: Linkedin,
 		},
 		{
 			label: "Email",
-			href: "mailto:you@example.com",
+			href: "mailto:sanchay2234@gmail.com",
 			icon: Mail,
 		},
 		// ] satisfies SocialLink[], ?
