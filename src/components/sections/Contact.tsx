@@ -1,5 +1,3 @@
-// components/sections/Contact.tsx
-
 type ContactProps = {
 	email: string;
 };

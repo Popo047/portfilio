@@ -1,4 +1,3 @@
-// components/sections/Hero.tsx
 type HeroProps = {
 	title: string;
 	subtitle: string;

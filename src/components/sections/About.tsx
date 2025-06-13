@@ -1,5 +1,3 @@
-// components/sections/About.tsx
-
 type AboutProps = {
 	content: string;
 };

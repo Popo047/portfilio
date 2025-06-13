@@ -1,5 +1,3 @@
-// components/sections/Projects.tsx
-
 type Project = {
 	title: string;
 	description: string;
