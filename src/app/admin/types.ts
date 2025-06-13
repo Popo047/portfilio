@@ -10,6 +10,7 @@ export type Sections =
 
 export type AboutProps = {
 	content: string;
+	name: string;
 };
 
 export type ProjectsProps = {

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { AboutProps } from "@/app/admin/types";
+import { Input } from "../ui/input";
 
 interface AboutFormProps {
 	data: AboutProps;
@@ -12,11 +13,19 @@ interface AboutFormProps {
 }
 
 export function AboutForm({ data, onChange }: AboutFormProps) {
-	const [content, setContent] = useState(data.content);
+	const [aboutData, setNewAboutData] = useState({
+		name: "",
+		content: "",
+	});
 
-	const handleChange = (value: string) => {
-		setContent(value);
-		onChange({ content: value });
+	const handleChange = (key: "content" | "name", value: string) => {
+		// setNewAboutData(value);
+		// onChange({ content: value });
+		setNewAboutData((prev) => ({
+			...prev,
+			[key]: value,
+		}));
+		onChange(aboutData);
 	};
 
 	return (
@@ -26,11 +35,18 @@ export function AboutForm({ data, onChange }: AboutFormProps) {
 			</CardHeader>
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
+					<Label htmlFor="about-name">Name</Label>
+					<Input
+						id="about-name"
+						value={aboutData.name}
+						onChange={(e) => handleChange("name", e.target.value)}
+						placeholder="Whats your name?"
+					/>
 					<Label htmlFor="about-content">About Content</Label>
 					<Textarea
 						id="about-content"
-						value={content}
-						onChange={(e) => handleChange(e.target.value)}
+						value={aboutData.content}
+						onChange={(e) => handleChange("content", e.target.value)}
 						placeholder="Write about yourself..."
 						className="min-h-[120px]"
 					/>
