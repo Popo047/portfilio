@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Portfolio",
-	description: "Portfolio App.",
+	title: "Soham Debnath | Full-Stack Developer Portfolio",
+	description:
+		"Explore the professional portfolio of Soham Debnath — showcasing projects, skills, and experience in Next.js, TypeScript, Tailwind, and Node.js.",
 };
 
 export default function RootLayout({
