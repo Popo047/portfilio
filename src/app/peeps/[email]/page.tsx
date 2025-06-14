@@ -2,17 +2,19 @@
 
 import { sectionMap } from "@/libs/section-map";
 import { HomeSections } from "@/libs/home-config";
+import Link from "next/link";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function getData(email: string): Promise<{ data: HomeSections[] }> {
+async function getData(email: string) {
 	const res = await fetch(`${BASE_URL}/api?email=${email}`, {
 		cache: "no-store",
 	});
 	return res.json();
 }
 
-export default async function Page({ params }: { params: { email: string } }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function Page({ params }: { params: any }) {
 	const { data }: { data: HomeSections[] } = await getData(params.email);
 
 	if (!data) {
@@ -25,12 +27,12 @@ export default async function Page({ params }: { params: { email: string } }) {
 					<p className="text-gray-600">
 						We couldn’t load the data for this user.
 					</p>
-					<a
+					<Link
 						href="/peeps"
 						className="text-blue-600 hover:underline hover:text-blue-800 transition"
 					>
 						← Try again
-					</a>
+					</Link>
 				</div>
 			</div>
 		);
