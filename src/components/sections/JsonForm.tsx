@@ -8,6 +8,7 @@ import CodeMirror from "@uiw/react-codemirror";
 import { json } from "@codemirror/lang-json";
 import { SectionData } from "@/app/admin/types";
 import { Textarea } from "../ui/textarea";
+import { useRouter } from "next/navigation";
 
 type JsonFormProps = {
 	onSave: (data: SectionData) => void;
@@ -29,13 +30,15 @@ export function JsonForm({ onSave }: JsonFormProps) {
   }
 }`);
 	const [error, setError] = useState<string | null>(null);
+	const router = useRouter();
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		try {
 			const parsed = JSON.parse(jsonInput);
-			onSave(parsed as SectionData);
+			await onSave(parsed as SectionData);
 			toast.success("✅ JSON parsed and saved!");
 			setError(null);
+			router.push(`/peeps`);
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 		} catch (err: any) {
 			setError("Invalid JSON. Please check your format.");
