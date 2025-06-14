@@ -3,15 +3,16 @@ type AboutProps = {
 	content: string;
 };
 
-export function About({ content }: AboutProps) {
+export function About({ name, content }: AboutProps) {
 	return (
-		<section id="about" className="py-16 px-4 max-w-3xl mx-auto text-center">
-			<h2 className="text-4xl font-extrabold text-center mb-6 mt-12 text-foreground">
-				About Me
+		<section
+			id="about"
+			className="py-20 px-4 mt-12 max-w-3xl mx-auto text-center animate-fade-in"
+		>
+			<h2 className="text-4xl font-bold mb-4 text-foreground">
+				👋 Hi, I&apos;m <span className="text-primary">{name}</span>
 			</h2>
-			<p className="text-muted-foreground text-base leading-relaxed">
-				{content}
-			</p>
+			<p className="text-muted-foreground text-lg leading-relaxed">{content}</p>
 		</section>
 	);
 }

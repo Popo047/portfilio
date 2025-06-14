@@ -73,7 +73,7 @@ type SectionProps =
 	| ExperienceProps
 	| ContactProps;
 
-interface HomeSections {
+export interface HomeSections {
 	type: Sections;
 	props: SectionProps;
 }

@@ -53,7 +53,7 @@ export function Navbar() {
 	return (
 		<header className="fixed top-0 left-0 w-full bg-background z-50 border-b">
 			<div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-				<span className="font-bold text-lg">Soham Debnath</span>
+				<span className="font-bold text-lg">Portfolio</span>
 
 				{/* Desktop Nav */}
 				<nav className="hidden md:flex space-x-6">
