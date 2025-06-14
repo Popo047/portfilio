@@ -12,6 +12,7 @@ import { Menu } from "lucide-react";
 import { ThemeToggleButton } from "@/components/buttons/theme-button";
 import clsx from "clsx";
 import { siteConfig } from "@/libs/site-config";
+import { useRouter } from "next/navigation";
 
 const navItems = [
 	{ label: "About", id: "about" },
@@ -24,6 +25,7 @@ const navItems = [
 export function Navbar() {
 	const [activeId, setActiveId] = useState<string>("about");
 	const [mobileSheetOpen, setMobileSheetOpen] = useState<boolean>(false);
+	const { push } = useRouter();
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -78,6 +80,12 @@ export function Navbar() {
 						</button>
 					))}
 					<ThemeToggleButton />
+					<button
+						onClick={() => push("/admin")}
+						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
+					>
+						Create Your Portfolio
+					</button>
 				</nav>
 
 				{/* Desktop Socials */}
@@ -142,6 +150,15 @@ export function Navbar() {
 										{label}
 									</button>
 								))}
+								<button
+									onClick={() => {
+										push("/admin");
+										setMobileSheetOpen(false);
+									}}
+									className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
+								>
+									Create Your Portfolio
+								</button>
 							</div>
 						</SheetContent>
 					</Sheet>
