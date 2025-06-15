@@ -155,7 +155,7 @@ export const homeSections: HomeSections[] = [
 						"Zustand",
 						"Node.js",
 					],
-					link: "https://app.in01.eazydata.ai",
+					link: "https://eazydata.ai",
 					description: [
 						"Frontend for a data migration and cleansing platform with real-time updates",
 						"Parallel routing reduced load time by 40%, RAM usage by 25%",
@@ -186,8 +186,7 @@ export const homeSections: HomeSections[] = [
 				{
 					title: "Infopulse",
 					tech: ["Javascript", "Material UI", "Zustand"],
-					link: "https://infoulse.ai/",
-
+					link: "https://infopulse.ai/",
 					period: "Sept 2024 – Present",
 					description: [
 						"InfoPulse is an online portal which has been developed to scrape news from different sources all around the Globe and provides users an entryway to a variety of information.",
