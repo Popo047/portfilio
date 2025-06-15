@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 
 type ContactProps = {
 	email: string;
@@ -52,7 +52,7 @@ export function Contact({ email, socials = {} }: ContactProps) {
 						<Linkedin className="w-6 h-6" />
 					</a>
 				)}
-				{socials.twitter && (
+				{/* {socials.twitter && (
 					<a
 						href={socials.twitter}
 						target="_blank"
@@ -61,7 +61,7 @@ export function Contact({ email, socials = {} }: ContactProps) {
 					>
 						<Twitter className="w-6 h-6" />
 					</a>
-				)}
+				)} */}
 			</div>
 		</section>
 	);

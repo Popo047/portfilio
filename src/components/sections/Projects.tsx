@@ -17,7 +17,7 @@ export function Projects({ projects }: ProjectsProps) {
 		<section id="projects" className="py-16 px-4 max-w-5xl mx-auto">
 			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
 				Projects
-			</h2>{" "}
+			</h2>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				{projects.map((project, idx) => (
 					<div

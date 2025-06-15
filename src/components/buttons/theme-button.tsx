@@ -3,8 +3,13 @@
 import { useThemeToggle } from "@/hooks/useThemeToggle";
 import { Moon, Sun } from "lucide-react";
 
+type UseThemeToggleReturn = {
+	theme: "light" | "dark";
+	toggleTheme: () => void;
+};
+
 export function ThemeToggleButton() {
-	const { theme, toggleTheme } = useThemeToggle();
+	const { theme, toggleTheme }: UseThemeToggleReturn = useThemeToggle();
 
 	return (
 		<button

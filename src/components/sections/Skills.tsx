@@ -9,21 +9,24 @@ type SkillsProps = {
 
 export function Skills({ skillGroups }: SkillsProps) {
 	return (
-		<section id="skills" className="py-8 px-4 max-w-4xl mx-auto">
+		<section id="skills" className="py-12 px-4 max-w-5xl mx-auto">
 			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
 				Skills
 			</h2>
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 				{skillGroups.map((group, index) => (
 					<div
 						key={index}
-						className="border rounded-lg p-4 shadow-sm hover:scale-105 transition-all duration-150 hover:ring "
+						className="bg-white/6 border backdrop-blur-2xl rounded-xl p-5 shadow hover:shadow-md transition-transform hover:-translate-y-1"
 					>
-						<h3 className="text-lg font-medium mb-2">{group.category}</h3>
+						<h3 className="text-lg font-semibold mb-3">{group.category}</h3>
 						<ul className="flex flex-wrap gap-2">
 							{group.skills.map((skill, idx) => (
-								<li key={idx} className="bg-muted text-sm px-2 py-1 rounded-md">
+								<li
+									key={idx}
+									className="bg-white/4 text-sm px-3 py-1 rounded-md border"
+								>
 									{skill}
 								</li>
 							))}

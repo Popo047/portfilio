@@ -10,7 +10,7 @@ type TestimonialsProps = {
 
 export function Testimonials({ testimonials }: TestimonialsProps) {
 	return (
-		<section id="testimonials" className="py-16 px-4 max-w-3xl mx-auto">
+		<section id="testimonials" className="py-6 px-4 max-w-3xl mx-auto">
 			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
 				Testimonials
 			</h2>

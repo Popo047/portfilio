@@ -5,6 +5,7 @@ type Sections =
 	| "education"
 	| "testimonials"
 	| "experience"
+	| "hobbies"
 	| "contacts";
 type AboutProps = {
 	name: string;
@@ -64,6 +65,10 @@ type ContactProps = {
 	};
 };
 
+type HobbiesProps = {
+	items: string[];
+};
+
 type SectionProps =
 	| AboutProps
 	| ProjectsProps
@@ -71,7 +76,8 @@ type SectionProps =
 	| EducationProps
 	| TestimonialsProps
 	| ExperienceProps
-	| ContactProps;
+	| ContactProps
+	| HobbiesProps;
 
 export interface HomeSections {
 	type: Sections;
@@ -118,7 +124,8 @@ export const homeSections: HomeSections[] = [
 					role: "Senior Frontend Developer",
 					company: "Decimal Point Analytics",
 					date: "Sept 2021 – Present",
-					description: "Worked on reusable component libraries using ShadCN.",
+					description:
+						"Worked as a Frontend developer, building and maintaining scalable applications using NextJs, Tailwind",
 					highlights: [
 						"Built 4 projects from scratch (PDFQuery, EazyData, SmartPipe, DocX)",
 						"Designed scalable frontend architecture with reusable components",
@@ -137,13 +144,6 @@ export const homeSections: HomeSections[] = [
 		type: "projects",
 		props: {
 			projects: [
-				{
-					title: "Portfolio Website",
-					description: ["A personal website to showcase my work and blogs."],
-					link: "https://popo047.vercel.dev",
-					period: "Jun. 2025 - Present",
-					tech: ["NextJS", "TailwindCSS", "ShadCn", "App Router", "NextJS API"],
-				},
 				{
 					title: "EazyData.ai",
 					period: "Sept. 2024 - Present",
@@ -184,6 +184,17 @@ export const homeSections: HomeSections[] = [
 					],
 				},
 				{
+					title: "Infopulse",
+					tech: ["Javascript", "Material UI", "Zustand"],
+					link: "https://infoulse.ai/",
+
+					period: "Sept 2024 – Present",
+					description: [
+						"InfoPulse is an online portal which has been developed to scrape news from different sources all around the Globe and provides users an entryway to a variety of information.",
+						"Heavy UI with MUI",
+					],
+				},
+				{
 					title: "OauthV2.0",
 					tech: ["Next.js 14", "TypeScript", "TailwindCSS", "Zustand"],
 					// link: "https://pdfquery.ai/",
@@ -207,6 +218,18 @@ export const homeSections: HomeSections[] = [
 					year: "August 2021",
 					gpa: "7.44",
 				},
+				{
+					degree: "Senior Secondary School ( 12th Standard )",
+					institution: "KCP Siddhartha Adarsh Residential Public School",
+					year: "July 2015",
+					gpa: "7.8",
+				},
+				{
+					degree: "High School ( 10th Standard )",
+					institution: "KCP Siddhartha Adarsh Residential Public School",
+					year: "July 2013",
+					gpa: "9.2",
+				},
 			],
 		},
 	},
@@ -215,10 +238,22 @@ export const homeSections: HomeSections[] = [
 		props: {
 			testimonials: [
 				{
-					name: "Dane Joe",
+					name: "Shubhendu Verma",
 					quote: "Soham is ...",
-					role: "Team Lead Lead, EazyData.ai",
+					role: "Senior Team Lead, Smartcloud ISFC",
 				},
+			],
+		},
+	},
+
+	{
+		type: "hobbies",
+		props: {
+			items: [
+				"Building PCs",
+				"Reading Finctonal Novels",
+				"Playing games",
+				"Reselling electronic goods",
 			],
 		},
 	},
@@ -228,7 +263,7 @@ export const homeSections: HomeSections[] = [
 		props: {
 			email: "sanchay2234@gmail.com",
 			socials: {
-				github: "https://github.com/Popo047/portfilio",
+				github: "https://github.com/Popo047/",
 				linkedin: "https://www.linkedin.com/in/soham-debnath-97597216b/",
 				twitter: "https://twitter.com/soham_dev",
 			},

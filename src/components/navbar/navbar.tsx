@@ -1,7 +1,7 @@
 // components/Navbar.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
 	Sheet,
 	SheetTrigger,
@@ -12,55 +12,47 @@ import { Menu } from "lucide-react";
 import { ThemeToggleButton } from "@/components/buttons/theme-button";
 import clsx from "clsx";
 import { siteConfig } from "@/libs/site-config";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { Button } from "../ui/button";
 
 const navItems = [
 	{ label: "About", id: "about" },
 	{ label: "Skills", id: "skills" },
 	{ label: "Experience", id: "experience" },
 	{ label: "Projects", id: "projects" },
-	{ label: "Contact", id: "contacts" },
+	{ label: "Hobbies", id: "hobbies" },
+	{ label: "Contact", id: "contact" },
 ];
+
+const hiddenRoutes = ["/admin"];
 
 export function Navbar() {
 	const [activeId, setActiveId] = useState<string>("about");
 	const [mobileSheetOpen, setMobileSheetOpen] = useState<boolean>(false);
 	const { push } = useRouter();
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				const visible = entries.find((entry) => entry.isIntersecting);
-				if (visible) setActiveId(visible.target.id);
-			},
-			{
-				rootMargin: "0px 0px -60% 0px",
-				threshold: 0.1,
-			}
-		);
-
-		navItems.forEach(({ id }) => {
-			const el = document.getElementById(id);
-			if (el) observer.observe(el);
-		});
-
-		return () => observer.disconnect();
-	}, []);
+	const pathname = usePathname();
 
 	const handleClick = (id: string) => {
 		document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 		setMobileSheetOpen(false);
+		setActiveId(id);
 	};
 
 	return (
 		<header className="fixed top-0 left-0 w-full bg-background z-50 border-b">
 			<div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-				<span className="font-bold text-lg">Portfolio</span>
+				<span
+					className="font-bold text-lg cursor-pointer"
+					onClick={() => push("/")}
+				>
+					SD
+				</span>
 
 				{/* Desktop Nav */}
 				<nav className="hidden md:flex space-x-6">
 					{navItems.map(({ label, id }) => (
 						<button
+							hidden={hiddenRoutes.includes(pathname)}
 							key={id}
 							onClick={() => handleClick(id)}
 							className={clsx(
@@ -79,13 +71,14 @@ export function Navbar() {
 							/>
 						</button>
 					))}
+
 					<ThemeToggleButton />
-					<button
+					<Button
 						onClick={() => push("/admin")}
 						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
 					>
 						Create Your Portfolio
-					</button>
+					</Button>
 				</nav>
 
 				{/* Desktop Socials */}
@@ -105,8 +98,6 @@ export function Navbar() {
 
 				{/* Mobile Nav (Sheet) */}
 				<div className="md:hidden">
-					{/* Mobile Socials */}
-
 					<Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
 						<SheetTrigger asChild>
 							<button className="p-2">
@@ -150,7 +141,7 @@ export function Navbar() {
 										{label}
 									</button>
 								))}
-								<button
+								<Button
 									onClick={() => {
 										push("/admin");
 										setMobileSheetOpen(false);
@@ -158,7 +149,7 @@ export function Navbar() {
 									className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
 								>
 									Create Your Portfolio
-								</button>
+								</Button>
 							</div>
 						</SheetContent>
 					</Sheet>
