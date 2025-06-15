@@ -1,3 +1,5 @@
+import { Hammer } from "lucide-react";
+
 type SkillGroup = {
 	category: string;
 	skills: string[];
@@ -10,7 +12,8 @@ type SkillsProps = {
 export function Skills({ skillGroups }: SkillsProps) {
 	return (
 		<section id="skills" className="py-12 px-4 max-w-5xl mx-auto">
-			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
+			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground flex items-center justify-center gap-2">
+				<Hammer className="w-6 h-6 text-primary" />
 				Skills
 			</h2>
 

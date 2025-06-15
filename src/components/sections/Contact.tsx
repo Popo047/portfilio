@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Contact2 } from "lucide-react";
 
 type ContactProps = {
 	email: string;
@@ -15,7 +15,9 @@ export function Contact({ email, socials = {} }: ContactProps) {
 			id="contact"
 			className="py-20 px-4 max-w-3xl mx-auto text-center space-y-6"
 		>
-			<h2 className="text-3xl font-bold text-foreground">Let&apos;s Connect</h2>
+			<h2 className="flex items-center justify-center gap-2 text-3xl font-bold text-foreground">
+				<Contact2 /> Let&apos;s Connect
+			</h2>
 
 			<p className="text-muted-foreground max-w-md mx-auto">
 				Feel free to reach out via email or connect with me on these platforms.

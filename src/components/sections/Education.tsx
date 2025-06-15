@@ -1,3 +1,5 @@
+import { School2 } from "lucide-react";
+
 type EducationItem = {
 	degree: string;
 	institution: string;
@@ -12,8 +14,8 @@ type EducationProps = {
 export function Education({ schools }: EducationProps) {
 	return (
 		<section id="education" className="py-12 px-4 max-w-3xl mx-auto">
-			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
-				Education
+			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-16 text-foreground">
+				<School2 /> Education
 			</h2>
 
 			<div className="space-y-4">

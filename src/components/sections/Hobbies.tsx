@@ -1,3 +1,4 @@
+import { Palette } from "lucide-react";
 import React from "react";
 
 interface Hobbies {
@@ -7,8 +8,8 @@ interface Hobbies {
 export function Hobbies({ items }: Hobbies) {
 	return (
 		<section id="hobbies" className="px-4 max-w-3xl mx-auto py-12">
-			<h2 className="text-4xl font-extrabold text-center mb-12 text-foreground">
-				Hobbies
+			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-12 text-foreground">
+				<Palette /> Hobbies
 			</h2>
 
 			<div className="flex flex-wrap gap-3 justify-center">
