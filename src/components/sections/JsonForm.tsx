@@ -57,20 +57,9 @@ const emptyStructure = [
 ];
 
 export function JsonForm({ onSave }: JsonFormProps) {
-	const [jsonInput, setJsonInput] = useState<string>(`{
-  "about": {
-    "name": "Soham Debnath",
-    "content": "I'm a passionate developer..."
-  },
-  "skills": {
-    "skillGroups": [
-      {
-        "category": "Frontend",
-        "skills": ["React", "Next.js", "TailwindCSS"]
-      }
-    ]
-  }
-}`);
+	const [jsonInput, setJsonInput] = useState<string>(
+		`${JSON.stringify(emptyStructure, null, 2)}`
+	);
 	const [error, setError] = useState<string | null>(null);
 	const router = useRouter();
 

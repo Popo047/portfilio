@@ -30,7 +30,7 @@ export default function Home() {
 	};
 
 	return (
-		<main className="min-h-screen mt-24 bg-background ">
+		<main className="min-h-[calc(100vh-150px)] mt-24 bg-background ">
 			<Tabs
 				defaultValue="json"
 				className=" flex items-center"
