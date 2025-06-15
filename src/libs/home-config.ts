@@ -238,7 +238,8 @@ export const homeSections: HomeSections[] = [
 			testimonials: [
 				{
 					name: "Shubhendu Verma",
-					quote: "Soham is ...",
+					quote:
+						"I have worked with Soham during his time as a frontend developer, and it was a great experience. He picked up Next.js and Tailwind CSS quickly and applied them effictively in real projects. Soham's curiosity and eagerness to learn and openness to feedback made working with him smooth and enjoyable.  He consistently delivered clean and responsive UIs and showed solid growth throughout, if you are looking for someone adaptable, quick to learn, and genuinely focussed on improving - Soham will be a great addition to your team.",
 					role: "Senior Team Lead, Smartcloud ISFC",
 				},
 			],

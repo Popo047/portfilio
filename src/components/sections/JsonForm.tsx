@@ -14,6 +14,48 @@ type JsonFormProps = {
 	onSave: (data: SectionData) => void;
 };
 
+const emptyStructure = [
+	{
+		type: "about",
+		props: { name: "", content: "" },
+	},
+	{
+		type: "skills",
+		props: { skillGroups: [] },
+	},
+	{
+		type: "experience",
+		props: { items: [] },
+	},
+	{
+		type: "projects",
+		props: { projects: [] },
+	},
+	{
+		type: "education",
+		props: { schools: [] },
+	},
+	{
+		type: "testimonials",
+		props: { testimonials: [] },
+	},
+	{
+		type: "hobbies",
+		props: { items: [] },
+	},
+	{
+		type: "contacts",
+		props: {
+			email: "",
+			socials: {
+				github: "",
+				linkedin: "",
+				twitter: "",
+			},
+		},
+	},
+];
+
 export function JsonForm({ onSave }: JsonFormProps) {
 	const [jsonInput, setJsonInput] = useState<string>(`{
   "about": {
@@ -32,22 +74,38 @@ export function JsonForm({ onSave }: JsonFormProps) {
 	const [error, setError] = useState<string | null>(null);
 	const router = useRouter();
 
+	const handleCopy = async () => {
+		try {
+			await navigator.clipboard.writeText(
+				JSON.stringify(emptyStructure, null, 2)
+			);
+			alert("JSON structure copied to clipboard!");
+		} catch (err) {
+			console.error("Failed to copy:", err);
+		}
+	};
+
 	const handleSubmit = async () => {
 		try {
 			const parsed = JSON.parse(jsonInput);
 			await onSave(parsed as SectionData);
-			toast.success("✅ JSON parsed and saved!");
+			toast.success("JSON parsed and saved!");
 			setError(null);
 			router.push(`/peeps`);
 			// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
 		} catch (err: any) {
 			setError("Invalid JSON. Please check your format.");
-			toast.error("❌ Invalid JSON");
+			toast.error(" Invalid JSON");
 		}
 	};
 
 	return (
 		<div>
+			<div className="mx-auto flex items-center justify-center pt-4">
+				<Button onClick={handleCopy} className="px-4 py-2 ">
+					Copy Empty JSON
+				</Button>
+			</div>
 			<div className="md:flex  md:flex-col hidden p-4 max-w-4xl mx-auto space-y-4">
 				<CodeMirror
 					value={jsonInput}
