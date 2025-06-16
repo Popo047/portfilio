@@ -1,0 +1,35 @@
+import { MessageCircle } from "lucide-react";
+
+type Testimonial = {
+	name: string;
+	quote: string;
+	role?: string;
+};
+
+type TestimonialsProps = {
+	testimonials: Testimonial[];
+};
+
+export function Testimonials({ testimonials }: TestimonialsProps) {
+	return (
+		<section id="testimonials" className="py-6 px-4 max-w-3xl mx-auto">
+			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-16 text-foreground">
+				<MessageCircle /> Testimonials
+			</h2>
+			<div className="space-y-6">
+				{testimonials.map((item, idx) => (
+					<div
+						key={idx}
+						className="p-4 border-l-4 border-primary bg-muted rounded-md"
+					>
+						<p className="italic">“{item.quote}”</p>
+						<p className="mt-2 font-medium">
+							— {item.name}
+							{item.role ? `, ${item.role}` : ""}
+						</p>
+					</div>
+				))}
+			</div>
+		</section>
+	);
+}
