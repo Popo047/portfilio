@@ -6,7 +6,8 @@ export type Sections =
 	| "education"
 	| "testimonials"
 	| "experience"
-	| "contacts";
+	| "contacts"
+	| "hobbies";
 
 export type AboutProps = {
 	content: string;
@@ -66,6 +67,10 @@ export type ContactProps = {
 	};
 };
 
+export type HobbiesProps = {
+	items: string[];
+};
+
 export type SectionData = {
 	about: AboutProps;
 	projects: ProjectsProps;
@@ -74,6 +79,7 @@ export type SectionData = {
 	testimonials: TestimonialsProps;
 	experience: ExperienceProps;
 	contacts: ContactProps;
+	hobbies: HobbiesProps;
 };
 
 export type FormConfig = {

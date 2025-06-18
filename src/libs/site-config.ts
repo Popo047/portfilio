@@ -11,7 +11,7 @@ export const siteConfig = {
 	socialLinks: [
 		{
 			label: "GitHub",
-			href: "https://github.com/Popo047/portfilio",
+			href: "https://github.com/Popo047/",
 			icon: Github,
 		},
 		{

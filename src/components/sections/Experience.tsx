@@ -1,4 +1,4 @@
-import { Briefcase } from "lucide-react";
+import { Briefcase, BriefcaseBusiness } from "lucide-react";
 
 type ExperienceItem = {
 	role: string;
@@ -14,8 +14,9 @@ type ExperienceProps = {
 
 export function Experience({ items }: ExperienceProps) {
 	return (
-		<section id="experience" className="py-20 px-4 max-w-5xl mx-auto">
-			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground">
+		<section id="experience" className="py-12 px-4 max-w-5xl mx-auto">
+			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-16 text-foreground">
+				<BriefcaseBusiness className="w-8 h-8 text-primary" />
 				Experience
 			</h2>
 
@@ -33,7 +34,7 @@ export function Experience({ items }: ExperienceProps) {
 										@ {exp.company}
 									</span>
 								</h3>
-								<p className="text-sm text-muted-foreground mt-2 sm:mt-0">
+								<p className="text-md text-muted-foreground mt-2 sm:mt-0">
 									{exp.date}
 								</p>
 							</div>

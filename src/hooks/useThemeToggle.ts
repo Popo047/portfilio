@@ -9,7 +9,7 @@ export function useThemeToggle() {
 		const storedTheme = localStorage.getItem("theme") as Theme;
 		const prefersDark = window.matchMedia(
 			"(prefers-color-scheme: dark)"
-		).matches;
+		).matches; // uf
 		const initial = storedTheme || (prefersDark ? "dark" : "light");
 
 		setTheme(initial);

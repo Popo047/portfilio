@@ -21,6 +21,7 @@ const defaultSectionData: SectionData = {
 	testimonials: { testimonials: [] },
 	experience: { items: [] },
 	contacts: { email: "", socials: {} },
+	hobbies: { items: [] },
 };
 
 const formConfig: FormConfig = {
@@ -53,6 +54,11 @@ const formConfig: FormConfig = {
 		title: "Experience",
 		description: "Work history and professional experience",
 		component: ExperienceForm,
+	},
+	hobbies: {
+		title: "Hobbies",
+		description: "List down your hobbies.",
+		component: () => <div>Hobby form coming soon...</div>,
 	},
 	contacts: {
 		title: "Contact",

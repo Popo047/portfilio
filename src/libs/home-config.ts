@@ -5,6 +5,7 @@ type Sections =
 	| "education"
 	| "testimonials"
 	| "experience"
+	| "hobbies"
 	| "contacts";
 type AboutProps = {
 	name: string;
@@ -64,6 +65,10 @@ type ContactProps = {
 	};
 };
 
+type HobbiesProps = {
+	items: string[];
+};
+
 type SectionProps =
 	| AboutProps
 	| ProjectsProps
@@ -71,9 +76,10 @@ type SectionProps =
 	| EducationProps
 	| TestimonialsProps
 	| ExperienceProps
-	| ContactProps;
+	| ContactProps
+	| HobbiesProps;
 
-interface HomeSections {
+export interface HomeSections {
 	type: Sections;
 	props: SectionProps;
 }
@@ -118,7 +124,8 @@ export const homeSections: HomeSections[] = [
 					role: "Senior Frontend Developer",
 					company: "Decimal Point Analytics",
 					date: "Sept 2021 – Present",
-					description: "Worked on reusable component libraries using ShadCN.",
+					description:
+						"Worked as a Frontend developer, building and maintaining scalable applications using NextJs, Tailwind",
 					highlights: [
 						"Built 4 projects from scratch (PDFQuery, EazyData, SmartPipe, DocX)",
 						"Designed scalable frontend architecture with reusable components",
@@ -138,13 +145,6 @@ export const homeSections: HomeSections[] = [
 		props: {
 			projects: [
 				{
-					title: "Portfolio Website",
-					description: ["A personal website to showcase my work and blogs."],
-					link: "https://popo047.vercel.dev",
-					period: "Jun. 2025 - Present",
-					tech: ["NextJS", "TailwindCSS", "ShadCn", "App Router", "NextJS API"],
-				},
-				{
 					title: "EazyData.ai",
 					period: "Sept. 2024 - Present",
 					tech: [
@@ -155,7 +155,7 @@ export const homeSections: HomeSections[] = [
 						"Zustand",
 						"Node.js",
 					],
-					link: "https://app.in01.eazydata.ai",
+					link: "https://eazydata.ai",
 					description: [
 						"Frontend for a data migration and cleansing platform with real-time updates",
 						"Parallel routing reduced load time by 40%, RAM usage by 25%",
@@ -184,6 +184,16 @@ export const homeSections: HomeSections[] = [
 					],
 				},
 				{
+					title: "Infopulse",
+					tech: ["Javascript", "Material UI", "Zustand"],
+					link: "https://infopulse.ai/",
+					period: "Sept 2024 – Present",
+					description: [
+						"InfoPulse is an online portal which has been developed to scrape news from different sources all around the Globe and provides users an entryway to a variety of information.",
+						"Heavy UI with MUI",
+					],
+				},
+				{
 					title: "OauthV2.0",
 					tech: ["Next.js 14", "TypeScript", "TailwindCSS", "Zustand"],
 					// link: "https://pdfquery.ai/",
@@ -207,6 +217,18 @@ export const homeSections: HomeSections[] = [
 					year: "August 2021",
 					gpa: "7.44",
 				},
+				{
+					degree: "Senior Secondary School ( 12th Standard )",
+					institution: "KCP Siddhartha Adarsh Residential Public School",
+					year: "July 2015",
+					gpa: "7.8",
+				},
+				{
+					degree: "High School ( 10th Standard )",
+					institution: "KCP Siddhartha Adarsh Residential Public School",
+					year: "July 2013",
+					gpa: "9.2",
+				},
 			],
 		},
 	},
@@ -215,10 +237,23 @@ export const homeSections: HomeSections[] = [
 		props: {
 			testimonials: [
 				{
-					name: "Dane Joe",
-					quote: "Soham is ...",
-					role: "Team Lead Lead, EazyData.ai",
+					name: "Shubhendu Verma",
+					quote:
+						"I have worked with Soham during his time as a frontend developer, and it was a great experience. He picked up Next.js and Tailwind CSS quickly and applied them effictively in real projects. Soham's curiosity and eagerness to learn and openness to feedback made working with him smooth and enjoyable.  He consistently delivered clean and responsive UIs and showed solid growth throughout, if you are looking for someone adaptable, quick to learn, and genuinely focussed on improving - Soham will be a great addition to your team.",
+					role: "Senior Team Lead, Smartcloud ISFC",
 				},
+			],
+		},
+	},
+
+	{
+		type: "hobbies",
+		props: {
+			items: [
+				"Building PCs",
+				"Reading Finctonal Novels",
+				"Playing games",
+				"Reselling electronic goods",
 			],
 		},
 	},
@@ -228,7 +263,7 @@ export const homeSections: HomeSections[] = [
 		props: {
 			email: "sanchay2234@gmail.com",
 			socials: {
-				github: "https://github.com/Popo047/portfilio",
+				github: "https://github.com/Popo047/",
 				linkedin: "https://www.linkedin.com/in/soham-debnath-97597216b/",
 				twitter: "https://twitter.com/soham_dev",
 			},

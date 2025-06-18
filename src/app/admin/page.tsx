@@ -23,14 +23,14 @@ export default function Home() {
 			}
 
 			const result = await res.json();
-			console.log("✅ Successfully saved:", result);
+			console.log("Successfully saved:", result);
 		} catch (err) {
-			console.error("❌ Error submitting data:", err);
+			console.error("Error submitting data:", err);
 		}
 	};
 
 	return (
-		<main className="min-h-screen mt-24 bg-background ">
+		<main className="min-h-[calc(100vh-150px)] mt-24 bg-background ">
 			<Tabs
 				defaultValue="json"
 				className=" flex items-center"

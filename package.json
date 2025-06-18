@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@codemirror/lang-json": "^6.0.1",
+		"@netlify/neon": "^0.1.0",
 		"@radix-ui/react-dialog": "^1.1.14",
 		"@radix-ui/react-label": "^2.1.7",
 		"@radix-ui/react-select": "^2.2.5",
@@ -20,7 +21,6 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.515.0",
-		"mongoose": "^8.15.2",
 		"next": "15.3.3",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
