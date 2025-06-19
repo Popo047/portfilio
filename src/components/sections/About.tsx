@@ -1,5 +1,3 @@
-import { BackgroundBeams } from "../ui/background-beams";
-
 type AboutProps = {
 	name: string;
 	content: string;
@@ -11,7 +9,6 @@ export function About({ name, content }: AboutProps) {
 			id="about"
 			className="py-20 px-4 mt-12 max-w-3xl mx-auto text-center animate-fade-in"
 		>
-			<BackgroundBeams />
 			<h2 className="text-4xl font-bold mb-4 text-foreground">
 				👋 Hi, I&apos;m <span className="text-primary">{name}</span>
 			</h2>
