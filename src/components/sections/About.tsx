@@ -4,6 +4,7 @@ import Image from "next/image";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import Popo from "@/assets/images/popo.webp";
 import { Spotlight } from "../ui/spotlight";
+import { useState, useEffect } from "react";
 
 type AboutProps = {
 	name: string;
@@ -11,6 +12,13 @@ type AboutProps = {
 };
 
 export function About({ name, content }: AboutProps) {
+	const [show, setShow] = useState(false);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => setShow(true), 100); // delay slightly
+		return () => clearTimeout(timeout);
+	}, []);
+
 	return (
 		<>
 			<motion.section
@@ -20,11 +28,12 @@ export function About({ name, content }: AboutProps) {
 				animate={{ opacity: 1, y: 0, scale: 1 }}
 				transition={{ duration: 0.8, ease: "easeOut" }}
 			>
-				{" "}
-				<Spotlight
-					className="-top-40 left-0 md:-top-20 md:left-60"
-					fill="white"
-				/>
+				{show && (
+					<Spotlight
+						className="-top-40 left-0 md:-top-20 md:left-60"
+						fill="white"
+					/>
+				)}
 				<div className="text-center md:text-left space-y-8">
 					<motion.h2
 						className="text-5xl md:text-nowrap font-extrabold text-foreground drop-shadow-sm leading-tight"
