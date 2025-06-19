@@ -14,6 +14,9 @@ import clsx from "clsx";
 import { siteConfig } from "@/libs/site-config";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { motion } from "motion/react";
+
+const MotionButton = motion(Button);
 
 const navItems = [
 	{ label: "About", id: "about" },
@@ -73,12 +76,17 @@ export function Navbar() {
 					))}
 
 					<ThemeToggleButton />
-					<Button
+					<MotionButton
 						onClick={() => push("/admin")}
-						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
+						whileHover={{ scale: 1.05 }}
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.4, ease: "easeOut" }}
+						whileTap={{ scale: 0.97 }}
+						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md  transition-colors duration-200"
 					>
 						Create Your Portfolio
-					</Button>
+					</MotionButton>
 				</nav>
 
 				{/* Desktop Socials */}
