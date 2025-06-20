@@ -1,4 +1,5 @@
 import { Briefcase, BriefcaseBusiness } from "lucide-react";
+import { ColourfulText } from "../ui/colourful-text";
 
 type ExperienceItem = {
 	role: string;
@@ -15,9 +16,9 @@ type ExperienceProps = {
 export function Experience({ items }: ExperienceProps) {
 	return (
 		<section id="experience" className="py-12 px-4 max-w-5xl mx-auto">
-			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-16 text-foreground">
-				<BriefcaseBusiness className="w-8 h-8 text-primary" />
-				Experience
+			<h2 className="text-2xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+				<BriefcaseBusiness className="w-8 h-8 text-primary mr-2" />
+				<ColourfulText text="Experience" />
 			</h2>
 
 			<div className="relative border-l-2 border-muted pl-6 space-y-12">

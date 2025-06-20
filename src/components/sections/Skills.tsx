@@ -1,4 +1,5 @@
 import { Hammer } from "lucide-react";
+import { ColourfulText } from "../ui/colourful-text";
 
 type SkillGroup = {
 	category: string;
@@ -12,9 +13,9 @@ type SkillsProps = {
 export function Skills({ skillGroups }: SkillsProps) {
 	return (
 		<section id="skills" className="py-12 px-4 max-w-5xl mx-auto">
-			<h2 className="text-4xl font-extrabold text-center mb-16 text-foreground flex items-center justify-center gap-2">
-				<Hammer className="w-6 h-6 text-primary" />
-				Skills
+			<h2 className="text-2xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+				<Hammer className="w-6 h-6 text-primary mr-2" />
+				<ColourfulText text="Skills" />
 			</h2>
 
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

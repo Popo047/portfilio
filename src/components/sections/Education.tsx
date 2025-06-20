@@ -1,4 +1,5 @@
 import { School2 } from "lucide-react";
+import { ColourfulText } from "../ui/colourful-text";
 
 type EducationItem = {
 	degree: string;
@@ -14,8 +15,8 @@ type EducationProps = {
 export function Education({ schools }: EducationProps) {
 	return (
 		<section id="education" className="py-12 px-4 max-w-3xl mx-auto">
-			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-16 text-foreground">
-				<School2 /> Education
+			<h2 className="text-2xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+				<School2 className="mr-2" /> <ColourfulText text="Education" />
 			</h2>
 
 			<div className="space-y-4">

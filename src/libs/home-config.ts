@@ -1,3 +1,6 @@
+import Popo from "@/assets/images/popo.webp";
+import { StaticImageData } from "next/image";
+
 type Sections =
 	| "about"
 	| "projects"
@@ -43,6 +46,7 @@ type TestimonialsProps = {
 		name: string;
 		quote: string;
 		role: string;
+		image: StaticImageData;
 	}[];
 };
 
@@ -241,6 +245,7 @@ export const homeSections: HomeSections[] = [
 					quote:
 						"I have worked with Soham during his time as a frontend developer, and it was a great experience. He picked up Next.js and Tailwind CSS quickly and applied them effictively in real projects. Soham's curiosity and eagerness to learn and openness to feedback made working with him smooth and enjoyable.  He consistently delivered clean and responsive UIs and showed solid growth throughout, if you are looking for someone adaptable, quick to learn, and genuinely focussed on improving - Soham will be a great addition to your team.",
 					role: "Senior Team Lead, Smartcloud ISFC",
+					image: Popo,
 				},
 			],
 		},
@@ -251,9 +256,9 @@ export const homeSections: HomeSections[] = [
 		props: {
 			items: [
 				"Building PCs",
-				"Reading Finctonal Novels",
+				"Reading Novels",
 				"Playing games",
-				"Reselling electronic goods",
+				"Reselling electronics",
 			],
 		},
 	},
