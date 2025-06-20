@@ -31,7 +31,8 @@ export default function Home() {
 	};
 
 	return (
-		<main className="min-h-[calc(100vh-150px)] mt-24 bg-background ">
+		<div className="min-h-[calc(100vh-150px)] mt-24 bg-background ">
+			{/* can not have two main tags */}
 			<Tabs
 				defaultValue="json"
 				className=" flex items-center"
@@ -60,6 +61,6 @@ export default function Home() {
 			<Link className="flex text-center justify-center" href={"/peeps"}>
 				Already have a profile?
 			</Link>
-		</main>
+		</div>
 	);
 }
