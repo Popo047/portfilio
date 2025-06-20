@@ -5,6 +5,7 @@ import { TextGenerateEffect } from "../ui/text-generate-effect";
 import Popo from "@/assets/images/popo.webp";
 import { Spotlight } from "../ui/spotlight";
 import { useState, useEffect } from "react";
+import { Theme } from "@/hooks/useThemeToggle";
 
 type AboutProps = {
 	name: string;
@@ -13,11 +14,25 @@ type AboutProps = {
 
 export function About({ name, content }: AboutProps) {
 	const [show, setShow] = useState(false);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const [fillColor, setFillColor] = useState<"red" | "white">("red");
+	const [theme, setTheme] = useState<Theme>("light");
 
 	useEffect(() => {
-		const timeout = setTimeout(() => setShow(true), 100); // delay slightly
+		const timeout = setTimeout(() => setShow(true), 100);
 		return () => clearTimeout(timeout);
 	}, []);
+
+	useEffect(() => {
+		const storedTheme = localStorage.getItem("theme") as Theme;
+		if (storedTheme) setTheme(storedTheme);
+	}, []);
+
+	useEffect(() => {
+		setFillColor(() => {
+			return theme === "dark" ? "white" : "red";
+		});
+	}, [theme]);
 
 	return (
 		<>
@@ -31,6 +46,7 @@ export function About({ name, content }: AboutProps) {
 				{show && (
 					<Spotlight
 						className="-top-40 left-0 md:-top-20 md:left-60"
+						// fill={fillColor}
 						fill="white"
 					/>
 				)}

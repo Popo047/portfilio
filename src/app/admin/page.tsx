@@ -5,6 +5,7 @@ import { SectionData } from "./types";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { JsonForm } from "@/components/sections/JsonForm";
+import Link from "next/link";
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState<"json" | "form">("json");
@@ -56,6 +57,9 @@ export default function Home() {
 					<DynamicForm onSave={handleSave} />
 				</TabsContent>
 			</Tabs>
+			<Link className="flex text-center justify-center" href={"/peeps"}>
+				Already have a profile?
+			</Link>
 		</main>
 	);
 }
