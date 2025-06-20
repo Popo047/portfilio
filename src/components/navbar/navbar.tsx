@@ -77,6 +77,7 @@ export function Navbar() {
 
 					<ThemeToggleButton />
 					<MotionButton
+						hidden={hiddenRoutes.includes(pathname)}
 						onClick={() => push("/admin")}
 						whileHover={{ scale: 1.05 }}
 						initial={{ opacity: 0, y: 10 }}
