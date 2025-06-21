@@ -38,7 +38,7 @@ export function About({ name, content }: AboutProps) {
 		<>
 			<motion.section
 				id="about"
-				className="h-screen py-32 px-6 mt-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+				className="h-screen py-32 px-6 mt-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 md:mb-0 mb-12 gap-16 items-center"
 				initial={{ opacity: 0, y: 30, scale: 0.98 }}
 				animate={{ opacity: 1, y: 0, scale: 1 }}
 				transition={{ duration: 0.8, ease: "easeOut" }}
@@ -68,10 +68,10 @@ export function About({ name, content }: AboutProps) {
 					>
 						{content}
 					</motion.p> */}
-					<TextGenerateEffect words={content} />
+					<TextGenerateEffect className="" words={content} />
 				</div>
 				<motion.div
-					className="relative mx-auto w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-border shadow-xl"
+					className=" md:block hidden md:relative mx-auto w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-border shadow-xl"
 					initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
 					animate={{ opacity: 1, scale: 1, rotate: 0 }}
 					transition={{ delay: 0.6, duration: 0.7, ease: "easeOut" }}

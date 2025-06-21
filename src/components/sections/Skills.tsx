@@ -36,7 +36,7 @@ export function Skills({ skillGroups }: SkillsProps) {
 						whileInView={{ opacity: 1, y: 0 }}
 						whileHover={{ scale: 1.03 }}
 						transition={{ duration: 0.4, ease: "easeOut" }}
-						className="relative overflow-hidden bg-white/5 border border-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg group"
+						className="relative  overflow-hidden bg-white/5 border border-white/10 backdrop-blur-lg rounded-xl p-6 shadow-lg group"
 					>
 						{mounted && (
 							<Meteors
@@ -45,16 +45,14 @@ export function Skills({ skillGroups }: SkillsProps) {
 							/>
 						)}
 						<div className=" z-10">
-							<h3 className="text-lg font-semibold mb-3 text-white/90">
-								{group.category}
-							</h3>
+							<h3 className="text-lg font-semibold mb-3 ">{group.category}</h3>
 							<ul className="flex flex-wrap gap-2">
 								{group.skills.map((skill, idx) => (
 									<motion.li
 										key={idx}
 										whileHover={{ scale: 1.05 }}
 										transition={{ type: "spring", stiffness: 300 }}
-										className="bg-white/10 border border-white/20 text-white text-sm px-3 py-1 rounded-md backdrop-blur-sm shadow-sm"
+										className="bg-white/10 border border-white/20  text-sm px-3 py-1 rounded-md backdrop-blur-sm shadow-sm "
 									>
 										{skill}
 									</motion.li>
