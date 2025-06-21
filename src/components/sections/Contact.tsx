@@ -1,4 +1,5 @@
 import { Mail, Github, Linkedin, Contact2 } from "lucide-react";
+import { ColourfulText } from "../ui/colourful-text";
 
 type ContactProps = {
 	email: string;
@@ -15,8 +16,8 @@ export function Contact({ email, socials = {} }: ContactProps) {
 			id="contact"
 			className="py-20 px-4 max-w-3xl mx-auto text-center space-y-6"
 		>
-			<h2 className="flex items-center justify-center gap-2 text-3xl font-bold text-foreground">
-				<Contact2 /> Let&apos;s Connect
+			<h2 className="text-3xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-8">
+				<Contact2 className="mr-2" /> <ColourfulText text=" Let's Connect" />
 			</h2>
 
 			<p className="text-muted-foreground max-w-md mx-auto">

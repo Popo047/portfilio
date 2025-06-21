@@ -27,7 +27,7 @@ export function Experience({ items }: ExperienceProps) {
 
 	return (
 		<section id="experience" className="py-12 px-4 max-w-5xl mx-auto">
-			<h2 className="text-2xl flex items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-10 font-sans mb-16">
+			<h2 className="text-3xl flex items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-10 font-sans mb-16">
 				<BriefcaseBusiness className="w-8 h-8 text-primary mr-2" />
 				<ColourfulText text="Experience" />
 			</h2>

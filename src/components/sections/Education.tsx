@@ -16,7 +16,7 @@ type EducationProps = {
 export function Education({ schools }: EducationProps) {
 	return (
 		<section id="education" className="py-12 px-4 max-w-3xl mx-auto">
-			<h2 className="text-2xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+			<h2 className="text-3xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
 				<School2 className="mr-2" /> <ColourfulText text="Education" />
 			</h2>
 

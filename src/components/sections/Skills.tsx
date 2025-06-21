@@ -23,7 +23,7 @@ export function Skills({ skillGroups }: SkillsProps) {
 
 	return (
 		<section id="skills" className="py-12 px-4 max-w-5xl mx-auto">
-			<h2 className="text-2xl flex items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-10 font-sans mb-16">
+			<h2 className="text-3xl flex items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-10 font-sans mb-16">
 				<Hammer className="w-6 h-6 text-primary mr-2" />
 				<ColourfulText text="Skills" />
 			</h2>

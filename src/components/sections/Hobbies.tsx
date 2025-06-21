@@ -10,7 +10,7 @@ interface Hobbies {
 export function Hobbies({ items }: Hobbies) {
 	return (
 		<section id="hobbies" className="px-4 max-w-3xl mx-auto py-12">
-			<h2 className="text-2xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+			<h2 className="text-3xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
 				<Palette className="mr-2" /> <ColourfulText text="Hobbies" />
 			</h2>
 
