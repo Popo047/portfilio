@@ -101,25 +101,14 @@ export const AnimatedTestimonials = ({
 						</AnimatePresence>
 					</div>
 				</div>
-				<div className="flex flex-col justify-between">
+				<div className="flex flex-col items-center w-auto md:w-xl mx-auto">
 					<motion.div
 						key={active}
-						initial={{
-							y: 20,
-							opacity: 0,
-						}}
-						animate={{
-							y: 0,
-							opacity: 1,
-						}}
-						exit={{
-							y: -20,
-							opacity: 0,
-						}}
-						transition={{
-							duration: 0.2,
-							ease: "easeInOut",
-						}}
+						initial={{ y: 20, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						exit={{ y: -20, opacity: 0 }}
+						transition={{ duration: 0.2, ease: "easeInOut" }}
+						className="w-full text-center px-6 md:px-12"
 					>
 						<h3 className="text-2xl font-bold text-black dark:text-white">
 							{testimonials[active].name}
@@ -127,20 +116,13 @@ export const AnimatedTestimonials = ({
 						<p className="text-sm text-gray-500 dark:text-neutral-500">
 							{testimonials[active].role}
 						</p>
+
 						<motion.p className="mt-8 text-md text-gray-500 dark:text-neutral-300">
 							{words.map((word, index) => (
 								<motion.span
 									key={index}
-									initial={{
-										filter: "blur(10px)",
-										opacity: 0,
-										y: 5,
-									}}
-									animate={{
-										filter: "blur(0px)",
-										opacity: 1,
-										y: 0,
-									}}
+									initial={{ filter: "blur(10px)", opacity: 0, y: 5 }}
+									animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
 									transition={{
 										duration: 0.2,
 										ease: "easeInOut",
@@ -153,18 +135,18 @@ export const AnimatedTestimonials = ({
 							))}
 						</motion.p>
 					</motion.div>
-					<div className="flex gap-4 pt-12 md:pt-2">
+					<div className="mt-12 flex gap-4">
 						<button
 							onClick={handlePrev}
-							className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+							className="group/button flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
 						>
-							<ArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
+							<ArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 transition-transform duration-300 group-hover/button:rotate-12" />
 						</button>
 						<button
 							onClick={handleNext}
-							className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
+							className="group/button flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
 						>
-							<ArrowRight className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:-rotate-12 dark:text-neutral-400" />
+							<ArrowRight className="h-5 w-5 text-black dark:text-neutral-400 transition-transform duration-300 group-hover/button:-rotate-12" />
 						</button>
 					</div>
 				</div>
