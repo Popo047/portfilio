@@ -25,7 +25,7 @@ export const TextGenerateEffect = ({
 			},
 			{
 				duration: duration ? duration : 1,
-				delay: stagger(0.1),
+				delay: stagger(0.05),
 			}
 		);
 	}, [animate, duration, filter]);
