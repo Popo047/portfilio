@@ -48,8 +48,8 @@ export const AnimatedTestimonials = ({
 	};
 
 	const words = testimonials[active].quote.split(" ");
-	const isTruncated = words.length > 50;
-	const displayWords = isTruncated ? words.slice(0, 50) : words;
+	// const isTruncated = words.length > 50;
+	// const displayWords = isTruncated ? words.slice(0, 50) : words;
 
 	return (
 		<div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
@@ -94,7 +94,7 @@ export const AnimatedTestimonials = ({
 										width={500}
 										height={500}
 										draggable={false}
-										className="h-full w-full rounded-3xl object-cover object-center"
+										className="h-full flex items-center w-full rounded-3xl object-cover object-center"
 									/>
 								</motion.div>
 							))}
@@ -127,8 +127,8 @@ export const AnimatedTestimonials = ({
 						<p className="text-sm text-gray-500 dark:text-neutral-500">
 							{testimonials[active].role}
 						</p>
-						<motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
-							{displayWords.map((word, index) => (
+						<motion.p className="mt-8 text-md text-gray-500 dark:text-neutral-300">
+							{words.map((word, index) => (
 								<motion.span
 									key={index}
 									initial={{

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import Image, { StaticImageData } from "next/image";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import EazyData from "@/assets/images/eazydata.png";
@@ -20,6 +20,19 @@ interface ProjectCardProps {
 interface ProjectCardListProps {
 	projects: ProjectCardProps[];
 }
+
+const fadeInUp: Variants = {
+	hidden: { opacity: 0, y: 40 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			type: "spring",
+			stiffness: 80,
+			damping: 15,
+		},
+	},
+};
 
 export function ProjectCard({ projects }: ProjectCardListProps) {
 	const [active, setActive] = useState<(typeof projects)[number] | null>(null);
@@ -124,7 +137,13 @@ export function ProjectCard({ projects }: ProjectCardListProps) {
 						layoutId={`card-${project.title}-${id}`}
 						key={`card-${project.title}-${id}`}
 						onClick={() => setActive(project)}
-						className="flex flex-col md:flex-row items-start justify-between gap-4 p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800 cursor-pointer group"
+						whileHover={{ y: -10 }}
+						initial="hidden"
+						whileInView="visible"
+						transition={{ duration: 0.5 }}
+						variants={fadeInUp}
+						viewport={{ once: false, amount: 0.3 }}
+						className="flex flex-col md:flex-row items-start justify-between gap-4 p-5 rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800 cursor-pointer group hover:ring-2  duration-300"
 					>
 						<div className="flex items-start gap-4 w-full">
 							<motion.div layoutId={`image-${project.title}-${id}`}>
@@ -152,7 +171,7 @@ export function ProjectCard({ projects }: ProjectCardListProps) {
 
 						<motion.button
 							layoutId={`button-${project.title}-${id}`}
-							className="self-start md:self-center px-4 py-2 text-sm font-medium rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-900 dark:text-white hover:bg-green-500 hover:text-white transition"
+							className=" cursor-pointer self-start md:self-center px-4 py-2 text-sm font-medium rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-900 dark:text-white hover:bg-green-500 hover:text-white transition"
 						>
 							View
 						</motion.button>

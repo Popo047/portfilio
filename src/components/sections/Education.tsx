@@ -1,11 +1,12 @@
 import { School2 } from "lucide-react";
 import { ColourfulText } from "../ui/colourful-text";
+import { Timeline } from "../ui/timeline";
 
 type EducationItem = {
 	degree: string;
 	institution: string;
 	year: string;
-	gpa?: string; // optional if some entries don't have it
+	gpa: string; // optional if some entries don't have it
 };
 
 type EducationProps = {
@@ -20,7 +21,7 @@ export function Education({ schools }: EducationProps) {
 			</h2>
 
 			<div className="space-y-4">
-				{schools.map((school, idx) => (
+				{/* {schools.map((school, idx) => (
 					<div key={idx} className="p-4 border rounded-md shadow-sm">
 						<h3 className="font-medium text-lg text-foreground">
 							{school.degree}
@@ -34,7 +35,8 @@ export function Education({ schools }: EducationProps) {
 							</p>
 						)}
 					</div>
-				))}
+				))} */}
+				<Timeline education={schools} />
 			</div>
 		</section>
 	);

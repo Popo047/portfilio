@@ -1,4 +1,4 @@
-import Popo from "@/assets/images/popo.webp";
+import PlaceholderImage from "@/assets/images/placeholder-profile-image.webp";
 import { StaticImageData } from "next/image";
 
 type Sections =
@@ -222,13 +222,13 @@ export const homeSections: HomeSections[] = [
 					gpa: "7.44",
 				},
 				{
-					degree: "Senior Secondary School ( 12th Standard )",
+					degree: "Senior Secondary School",
 					institution: "KCP Siddhartha Adarsh Residential Public School",
 					year: "July 2015",
 					gpa: "7.8",
 				},
 				{
-					degree: "High School ( 10th Standard )",
+					degree: "High School",
 					institution: "KCP Siddhartha Adarsh Residential Public School",
 					year: "July 2013",
 					gpa: "9.2",
@@ -245,7 +245,14 @@ export const homeSections: HomeSections[] = [
 					quote:
 						"I have worked with Soham during his time as a frontend developer, and it was a great experience. He picked up Next.js and Tailwind CSS quickly and applied them effictively in real projects. Soham's curiosity and eagerness to learn and openness to feedback made working with him smooth and enjoyable.  He consistently delivered clean and responsive UIs and showed solid growth throughout, if you are looking for someone adaptable, quick to learn, and genuinely focussed on improving - Soham will be a great addition to your team.",
 					role: "Senior Team Lead, Smartcloud ISFC",
-					image: Popo,
+					image: PlaceholderImage,
+				},
+				{
+					name: "Ramkishore Vaishnav",
+					quote:
+						"Working with Soham as our Front-End Lead was a great experience. He’s highly skilled, consistently delivers top-quality work, and always approaches tasks with dedication and focus. His problem-solving skills and attention to detail truly stand out. He’s also a great team player, making collaboration smooth and productive. Any team would be lucky to have him.",
+					role: "Team Lead, Smartcloud ISFC",
+					image: PlaceholderImage,
 				},
 			],
 		},
