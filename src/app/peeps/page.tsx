@@ -12,7 +12,7 @@ export default function HomePage() {
 		push(`/peeps/${enteredEmail}`);
 	};
 	return (
-		<main className="mt-24 w-full h-screen">
+		<div className="mt-24 w-full h-screen">
 			<div className=" flex flex-col items-center justify-center space-y-8">
 				<Label>Enter your email</Label>
 				<Input
@@ -34,6 +34,6 @@ export default function HomePage() {
 					Save
 				</Button>
 			</div>
-		</main>
+		</div>
 	);
 }
