@@ -14,6 +14,9 @@ import clsx from "clsx";
 import { siteConfig } from "@/libs/site-config";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { AnimatePresence, motion } from "motion/react";
+
+const MotionButton = motion(Button);
 
 const navItems = [
 	{ label: "About", id: "about" },
@@ -29,6 +32,7 @@ const hiddenRoutes = ["/admin"];
 export function Navbar() {
 	const [activeId, setActiveId] = useState<string>("about");
 	const [mobileSheetOpen, setMobileSheetOpen] = useState<boolean>(false);
+	const [hovered, setHovered] = useState(false);
 	const { push } = useRouter();
 	const pathname = usePathname();
 
@@ -39,28 +43,74 @@ export function Navbar() {
 	};
 
 	return (
-		<header className="fixed top-0 left-0 w-full bg-background z-50 border-b">
-			<div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-				<span
-					className="font-bold text-lg cursor-pointer"
+		<motion.header
+			initial={{ opacity: 0, y: -20, scale: 0.98 }}
+			animate={{ opacity: 1, y: 0, scale: 1 }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+			className="fixed top-0 left-0 w-full bg-background z-50 border-b shadow-lg"
+		>
+			<div className="max-w-full mx-auto px-4 h-16 flex items-center justify-between">
+				<motion.div
 					onClick={() => push("/")}
+					className="font-bold text-lg cursor-pointer inline-block"
+					onMouseEnter={() => setHovered(true)}
+					onMouseLeave={() => setHovered(false)}
+					initial={{ opacity: 0, x: 10 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ delay: 0.1, duration: 1, ease: "easeIn" }}
 				>
-					SD
-				</span>
+					<AnimatePresence mode="wait">
+						{!hovered ? (
+							<motion.span
+								key="sd"
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.2 }}
+							>
+								SD
+							</motion.span>
+						) : (
+							<motion.span
+								key="full"
+								initial={{ width: 0, opacity: 0 }}
+								animate={{ width: "auto", opacity: 1 }}
+								exit={{ width: 0, opacity: 0 }}
+								transition={{
+									type: "tween",
+									duration: 0.5,
+									ease: "easeOut",
+								}}
+								className="inline-block overflow-hidden whitespace-nowrap border-r-2 border-muted animate-typing text-muted-foreground"
+							>
+								Soham Debnath
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</motion.div>
 
 				{/* Desktop Nav */}
 				<nav className="hidden md:flex space-x-6">
-					{navItems.map(({ label, id }) => (
-						<button
+					{navItems.map(({ label, id }, index) => (
+						<motion.button
 							hidden={hiddenRoutes.includes(pathname)}
 							key={id}
 							onClick={() => handleClick(id)}
 							className={clsx(
-								"relative text-sm font-medium transition-colors duration-200 group",
+								"relative cursor-pointer text-sm font-medium transition-colors duration-200 group",
 								activeId === id
 									? "text-primary"
 									: "text-muted-foreground hover:text-primary"
 							)}
+							initial={{ opacity: 0, y: -10 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{
+								delay: 0.1 * index,
+								duration: 0.4,
+								ease: "easeOut",
+							}}
+							whileHover={{ scale: 1.06 }}
+							whileTap={{ scale: 0.95 }}
 						>
 							{label}
 							<span
@@ -69,19 +119,24 @@ export function Navbar() {
 									activeId === id && "scale-x-100"
 								)}
 							/>
-						</button>
+						</motion.button>
 					))}
 
 					<ThemeToggleButton />
-					<Button
+					<MotionButton
+						hidden={hiddenRoutes.includes(pathname)}
 						onClick={() => push("/admin")}
-						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
+						whileHover={{ scale: 1.05 }}
+						initial={{ opacity: 0, y: 10 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.4, ease: "easeOut" }}
+						whileTap={{ scale: 0.97 }}
+						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md  transition-colors duration-200"
 					>
 						Create Your Portfolio
-					</Button>
+					</MotionButton>
 				</nav>
 
-				{/* Desktop Socials */}
 				<div className="hidden md:flex space-x-4">
 					{siteConfig.socialLinks.map(({ label, href, icon: Icon }) => (
 						<a
@@ -155,6 +210,6 @@ export function Navbar() {
 					</Sheet>
 				</div>
 			</div>
-		</header>
+		</motion.header>
 	);
 }

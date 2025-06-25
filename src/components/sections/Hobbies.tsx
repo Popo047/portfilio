@@ -1,5 +1,7 @@
 import { Palette } from "lucide-react";
 import React from "react";
+import { ColourfulText } from "../ui/colourful-text";
+import { MovinBorderButton } from "../ui/moving-border";
 
 interface Hobbies {
 	items: string[];
@@ -8,18 +10,19 @@ interface Hobbies {
 export function Hobbies({ items }: Hobbies) {
 	return (
 		<section id="hobbies" className="px-4 max-w-3xl mx-auto py-12">
-			<h2 className="flex items-center justify-center gap-2 text-4xl font-extrabold text-center mb-12 text-foreground">
-				<Palette /> Hobbies
+			<h2 className="text-3xl flex  items-center justify-center md:text-3xl lg:text-5xl font-bold text-center text-white relative z-2 font-sans mb-16">
+				<Palette className="mr-2" /> <ColourfulText text="Hobbies" />
 			</h2>
 
-			<div className="flex flex-wrap gap-3 justify-center">
+			<div className="flex flex-wrap gap-4 justify-center">
 				{items.map((hobby, index) => (
-					<span
+					<MovinBorderButton
 						key={index}
-						className="px-4 py-2 bg-muted text-sm rounded-full text-foreground border hover:shadow-sm transition"
+						borderRadius="1.75rem"
+						className=" bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800"
 					>
 						{hobby}
-					</span>
+					</MovinBorderButton>
 				))}
 			</div>
 		</section>

@@ -39,13 +39,13 @@ export default async function Page({ params }: { params: any }) {
 	}
 
 	return (
-		<main>
+		<div>
 			{data.map((section, index) => {
 				const SectionComponent = sectionMap[section.type];
 				if (!SectionComponent) return null;
 
 				return <SectionComponent key={index} {...section.props} />;
 			})}
-		</main>
+		</div>
 	);
 }

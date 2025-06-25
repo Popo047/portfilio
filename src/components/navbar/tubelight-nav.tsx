@@ -1,0 +1,74 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+
+interface NavItem {
+	label: string;
+	id: string;
+}
+
+interface NavBarProps {
+	items: NavItem[];
+	className?: string;
+	handleClick: (id: string) => void;
+}
+
+//Might use later, looks cool
+export function NavBar({ items, className, handleClick }: NavBarProps) {
+	const [activeTab, setActiveTab] = useState(items[0].label);
+
+	return (
+		<div
+			className={cn(
+				"fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+				className
+			)}
+		>
+			<div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
+				{items.map((item) => {
+					const isActive = activeTab === item.label;
+
+					return (
+						<Link
+							href={"/"}
+							key={item.label}
+							onClick={() => {
+								setActiveTab(item.label);
+								handleClick(item.id);
+							}}
+							className={cn(
+								"relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+								"text-foreground/80 hover:text-primary",
+								isActive && "bg-muted text-primary"
+							)}
+						>
+							<span className="hidden md:inline">{item.label}</span>
+
+							{isActive && (
+								<motion.div
+									layoutId="lamp"
+									className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+									initial={false}
+									transition={{
+										type: "spring",
+										stiffness: 300,
+										damping: 30,
+									}}
+								>
+									<div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
+										<div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
+										<div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
+										<div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
+									</div>
+								</motion.div>
+							)}
+						</Link>
+					);
+				})}
+			</div>
+		</div>
+	);
+}
