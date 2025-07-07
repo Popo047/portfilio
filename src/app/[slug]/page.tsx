@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 type Props = {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 };
 
 type EventData = {

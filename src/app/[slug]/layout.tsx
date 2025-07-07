@@ -1,15 +1,16 @@
+import type React from "react";
 import type { Metadata } from "next";
 
 type Props = {
-	params: { slug: string };
+	params: Promise<{ slug: string }>;
 };
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-	const { slug } = await props.params;
+	const data = await props.params;
 
-	const res = await fetch(`${BASE_URL}/api/dynamic-og?slug=${slug}`, {
+	const res = await fetch(`${BASE_URL}/api/dynamic-og?slug=${data.slug}`, {
 		cache: "no-store",
 	});
 
@@ -30,7 +31,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 		openGraph: {
 			title: event.title,
 			description: event.description,
-			url: `${BASE_URL}/event/${slug}`,
+			url: `${BASE_URL}/event/${data.slug}`,
 			images: [
 				{
 					url: event.image_url,
