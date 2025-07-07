@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -15,6 +17,12 @@ const SUPPORTED_DOMAINS = [
 	"cdn.example.com",
 	"images.unsplash.com",
 ];
+type Event = {
+	slug: string;
+	title: string;
+	description: string;
+	image_url: string;
+};
 
 export default function CreateEventPage() {
 	const [title, setTitle] = useState("");
@@ -22,6 +30,7 @@ export default function CreateEventPage() {
 	const [description, setDescription] = useState("");
 	const [imageUrl, setImageUrl] = useState("");
 	const [success, setSuccess] = useState(false);
+	const [availableLinks, setAvailableLinks] = useState<Event[]>([]);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -56,6 +65,19 @@ export default function CreateEventPage() {
 			setSuccess(true);
 		}
 	};
+
+	const getAvalableLinks = async () => {
+		const res = await fetch(`${BASE_URL}/api/dynamic-og/get-all-links`);
+		const { data } = await res.json();
+
+		setAvailableLinks(data);
+	};
+
+	useEffect(() => {
+		getAvalableLinks();
+	}, []);
+
+	console.log(availableLinks);
 
 	return (
 		<div className="min-h-screen mt-24 max-w-xl mx-auto py-10 px-4 ">
@@ -140,6 +162,20 @@ export default function CreateEventPage() {
 						</p>
 					</CardContent>
 				</Card>
+			)}
+			<p className="mt-8 mb-2">Availaable Links to share:</p>
+			{availableLinks && (
+				<div className="flex flex-wrap gap-2 ">
+					{availableLinks.map((link) => (
+						<Link
+							key={link.slug}
+							href={`/${link.slug}`}
+							className="text-sm px-3 py-1 bg-muted hover:bg-muted/70 border rounded-full transition"
+						>
+							{link.title}
+						</Link>
+					))}
+				</div>
 			)}
 		</div>
 	);
