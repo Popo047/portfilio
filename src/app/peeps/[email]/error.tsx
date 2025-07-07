@@ -2,13 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-// type ErrorType = {
-// 	error: string;
-// 	reset: () => void;
-// };
-
-//Please modify this component to catch potential connector page break errors (if any) - 12th Sept
-export default function ConnectionSubtypeCreationError() {
+export default function EmailHandler() {
 	const { push } = useRouter();
 	return (
 		<div className="flex flex-col items-center justify-center h-screen">

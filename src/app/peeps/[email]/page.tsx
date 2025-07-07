@@ -1,5 +1,3 @@
-// app/peeps/[email]/page.tsx
-
 import { sectionMap } from "@/libs/section-map";
 import { HomeSections } from "@/libs/home-config";
 import Link from "next/link";
@@ -14,7 +12,7 @@ async function getData(email: string) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function Page({ params }: { params: any }) {
+export default async function UserPage({ params }: { params: any }) {
 	const { data }: { data: HomeSections[] } = await getData(params.email);
 
 	if (!data) {
