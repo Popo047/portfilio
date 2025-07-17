@@ -42,7 +42,7 @@ export async function POST(req: Request) {
 
 		return NextResponse.json({ success: true }, { status: 201 });
 	} catch (err) {
-		console.error("❌ Neon insert error:", err);
+		console.error("  insert error:", err);
 		return NextResponse.json(
 			{ success: false, error: "Database error", details: String(err) },
 			{ status: 500 }
@@ -75,7 +75,7 @@ export async function GET(req: Request) {
 
 		return NextResponse.json({ success: true, data: result[0].data });
 	} catch (err) {
-		console.error("❌ Neon fetch error:", err);
+		console.error("  fetch error:", err);
 		return NextResponse.json(
 			{ success: false, error: "Database error", details: String(err) },
 			{ status: 500 }
