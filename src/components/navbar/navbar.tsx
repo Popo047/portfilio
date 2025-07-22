@@ -13,10 +13,10 @@ import { ThemeToggleButton } from "@/components/buttons/theme-button";
 import clsx from "clsx";
 import { siteConfig } from "@/libs/site-config";
 import { usePathname, useRouter } from "next/navigation";
-import { Button } from "../ui/button";
+// import { Button } from "../ui/button";
 import { AnimatePresence, motion } from "motion/react";
 
-const MotionButton = motion(Button);
+// const MotionButton = motion(Button);
 
 const navItems = [
 	{ label: "About", id: "about" },
@@ -123,7 +123,7 @@ export function Navbar() {
 					))}
 
 					<ThemeToggleButton />
-					<MotionButton
+					{/* <MotionButton
 						hidden={hiddenRoutes.includes(pathname)}
 						onClick={() => push("/admin")}
 						whileHover={{ scale: 1.05 }}
@@ -134,7 +134,7 @@ export function Navbar() {
 						className="text-sm font-medium border border-border px-4 py-1.5 rounded-md  transition-colors duration-200"
 					>
 						Create Your Portfolio
-					</MotionButton>
+					</MotionButton> */}
 				</nav>
 
 				<div className="hidden md:flex space-x-4">
@@ -195,7 +195,7 @@ export function Navbar() {
 										{label}
 									</button>
 								))}
-								<Button
+								{/* <Button
 									onClick={() => {
 										push("/admin");
 										setMobileSheetOpen(false);
@@ -203,7 +203,7 @@ export function Navbar() {
 									className="text-sm font-medium border border-border px-4 py-1.5 rounded-md hover:bg-muted transition-colors duration-200"
 								>
 									Create Your Portfolio
-								</Button>
+								</Button> */}
 							</div>
 						</SheetContent>
 					</Sheet>
