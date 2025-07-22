@@ -151,7 +151,6 @@ export function Navbar() {
 					))}
 				</div>
 
-				{/* Mobile Nav (Sheet) */}
 				<div className="md:hidden">
 					<Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
 						<SheetTrigger asChild>

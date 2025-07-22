@@ -4,8 +4,10 @@ import Image from "next/image";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
 import Popo from "@/assets/images/popo.webp";
 import { Spotlight } from "../ui/spotlight";
-import { useState, useEffect } from "react";
-import { Theme } from "@/hooks/useThemeToggle";
+import { useState, useEffect, useRef, Ref } from "react";
+import { Button } from "../ui/button";
+import { Download } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 
 type AboutProps = {
 	name: string;
@@ -14,25 +16,17 @@ type AboutProps = {
 
 export function About({ name, content }: AboutProps) {
 	const [show, setShow] = useState(false);
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [fillColor, setFillColor] = useState<"red" | "white">("red");
-	const [theme, setTheme] = useState<Theme>("light");
+	const downloadRef: Ref<HTMLAnchorElement> = useRef(null);
+	const isDownload = useSearchParams().get("isResumeDownload");
+
+	useEffect(() => {
+		if (isDownload) downloadRef.current?.click();
+	}, [isDownload]);
 
 	useEffect(() => {
 		const timeout = setTimeout(() => setShow(true), 100);
 		return () => clearTimeout(timeout);
 	}, []);
-
-	useEffect(() => {
-		const storedTheme = localStorage.getItem("theme") as Theme;
-		if (storedTheme) setTheme(storedTheme);
-	}, []);
-
-	useEffect(() => {
-		setFillColor(() => {
-			return theme === "dark" ? "white" : "red";
-		});
-	}, [theme]);
 
 	return (
 		<>
@@ -69,6 +63,17 @@ export function About({ name, content }: AboutProps) {
 						{content}
 					</motion.p> */}
 					<TextGenerateEffect className="" words={content} />
+					<Button asChild className="gap-2 px-4 py-2 text-base font-medium">
+						<a
+							ref={downloadRef}
+							href="/files/SohamDebnath_Resume_Jul2025.pdf"
+							download
+							aria-label="Download Resume"
+						>
+							<Download className="w-4 h-4" />
+							Resume
+						</a>
+					</Button>
 				</div>
 				<motion.div
 					className=" md:block hidden md:relative mx-auto w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-border shadow-xl"
